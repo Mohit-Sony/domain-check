@@ -1,16 +1,24 @@
 <% for(i of list){%>
     <div class="list-div-container unclicked" id="<%= i._id %>">
         <div class="row1-list-div-container">
-    
+            <% let domainName = ""  %>
             <div class="row1-domain-cont flex-left">
                 <% if( i.Type == 'Prefix'){%>
+                    <% domainName = i['Prefix/Suffix']+keyword+ext  %>
                 <%= i['Prefix/Suffix'] %><%= keyword %> <span style="color: #FF099C;"><%= ext%></span> 
                 <% }else{%>
+                    <% domainName = keyword+i['Prefix/Suffix']+ext  %>
                     <%= keyword %><%= i['Prefix/Suffix'] %> <span style="color: #FF099C;"><%= ext%></span> 
                 <%} %>
             </div>
             <div class="row1-wishlist-cont flex-center ">
-                <span class="iconify" data-icon="ant-design:heart-outlined"></span>
+                <form action="/user/profile/" method="post">
+                    <input style="display: none;" type="text" name="item" value ="<%= domainName %>" id="">
+                    <button type="submit" class="wishlist-btn">
+                        <span class="iconify" data-icon="ant-design:heart-outlined"></span>
+                    </button>
+                    
+                </form>
             </div>
         </div>
     </div>

@@ -10,7 +10,9 @@ routes.get('/',function(req,res){
 routes.get('/sign-in',userController.sign_in);
 routes.get('/sign-up',userController.sign_up);
 routes.get('/sign-out',userController.user);
-routes.get('/profile',passport.checkAuthentication ,userController.profile);
+routes.post('/update-profile',userController.edit_user)
+routes.use('/profile',passport.checkAuthentication ,require('./profile'));
+// routes.get()
 routes.post('/create-user',userController.create_user);
 
 routes.post('/create-session',passport.authenticate(

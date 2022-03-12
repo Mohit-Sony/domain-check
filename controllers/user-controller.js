@@ -76,4 +76,21 @@ module.exports.log_out = function(req,res){
     
 }
 
+module.exports.edit_user = async function(req,res){
+    try {
+        let user = await User.findByIdAndUpdate(req.user.id,{
+            email: req.body.email ,
+            name : req.body.name ,
+            number:req.body.number
+            
+
+        });
+    console.log(user);
+
+    return res.redirect('back');
+    } catch (error) {
+        console.log(error);
+        return res.redirect('back');
+    }
+}
 

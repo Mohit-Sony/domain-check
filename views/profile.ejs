@@ -11,3 +11,47 @@
 
 <!-- then content area -->
 <!-- header then content -->
+<link rel="stylesheet" href="/css/profile.css">
+
+        <%- include('_header') %>
+
+<div class="main-content">
+    <div class="sidebar-panel">
+        <div class="user-links">
+            <a href="/user/profile" class="my-profile"><span class="iconify-inline" data-icon="ep:user"></span>My Profile</a>
+            <a href="/user/profile/wishlist" class="wishlist"><span class="iconify-inline" data-icon="ant-design:heart-outlined"></span>Wishlist<span class= "wishlist-count">9</span></a>
+            <a href="/user/proflie/premium" class="premium-features"><span class="iconify-inline" data-icon="fluent:premium-20-regular"></span>Premium Features</a>
+            <a href="/user/profile/past-query" class="past-queries"><span class="iconify-inline" data-icon="ant-design:history-outlined"></span></span>My Past Queries</a>
+            <a href="/user/logout" class="logout"><span class="iconify" data-icon="ant-design:logout-outlined"></span>Logout</a>
+
+        </div>
+    </div>
+
+    <div class="content-area">
+        <h2>Hello, <%= locals.user.name %></h2>
+        <div class="user-info">
+
+            <form action="/user/update-profile" method="post">
+                <div class="frm-grp">
+                    <label for="name">Your Name</label>
+                    <input type="text" class="f-name" name="name" value="<%= locals.user.name %>"><span class="iconify-inline" data-icon="clarity:edit-line"></span>
+                </div>
+                <div class="frm-grp">
+                <label for="email">Your Email</label>
+                <input type="email" class="email" name="email" value="<%= locals.user.email %>"><span class="iconify-inline tick" data-icon="teenyicons:tick-circle-solid"></span>
+                </div>
+                <div class="frm-grp  inline">
+                    <div class="frm-grp c-code">
+                        <label for="c-code">Country Code(+)</label>
+                        <input type="number"  class="country-code" value="91">
+                    </div>
+                    <div class="frm-grp">
+                        <label for="last-name">Mobile Number</label>
+                        <input type="phone" name="number" class="phone" value="<%= locals.user.number %>"><span class="iconify-inline" data-icon="clarity:edit-line"></span>
+                    </div>
+                </div>
+                <button type="submit" class="update-btn">Update Profile</button>
+            </form>
+        </div>
+    </div>
+</div>    
