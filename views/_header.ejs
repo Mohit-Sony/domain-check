@@ -1,0 +1,49 @@
+<link rel="stylesheet" href="/css/header.css">
+
+<header>
+    <nav>
+        <div class="header container">
+            <div class="logo">DOMAIN</div>
+            <form action="/result/" class="search-form container" method="get">
+                <input type="search" id="keyword" name="keyword" placeholder="Type your keyword here, e.g. 'News'">
+                <span>|</span>
+                <select name="domain-ex" id="extention">
+                    <option value=".com">.com</option>
+                    <option value=".in">.in</option>
+                    <option value=".co.in">.co.in</option>
+                    <option value=".org">.org</option>
+                    <option value=".net">.net</option>
+                    <option value=".io">.io</option>
+                </select>
+
+                <button type="submit"><span class="iconify" data-icon="akar-icons:search"></span></button>
+            </form>
+            <div class="header-buttons container">
+
+                <a href="/#">
+                    <button class="try-premium"><span class="iconify" data-icon="fluent:premium-32-regular"></span>Try Premium</button>    
+                </a>
+
+                <% if(locals.user){%>
+
+                    <a href="/user/profile"> 
+                        <button class="log-sign"><span class="iconify" data-icon="ep:user"></span> hi <%= user.name %></button>
+                    </a>
+                    <a href="/user/log-out">
+                        <button class="log-sign"><span class="iconify" data-icon="ep:user"> </span>logout</button>
+
+                    </a>
+
+
+                <%} else{ %>
+                    <a href="/user/sign-in">
+                        <button class="log-sign"><span class="iconify" data-icon="ep:user"></span>Login/SignUp</button>
+           
+                    </a>
+                
+                <%} %>
+
+            </div>
+        </div>
+    </nav>
+</header>

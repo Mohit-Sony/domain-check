@@ -1,0 +1,81 @@
+
+nav{
+  padding-bottom: 20px;
+}
+.header{
+  z-index: 100;
+  padding: 20px 60px;
+  /* position: absolute; */
+  width: 100%;
+  background: #ffffff63;
+  border-radius: 15px;
+  justify-content: space-between;
+  border: 1px solid rgba(255, 255, 255, 0.568);
+}
+.logo{
+  font-size: 32px;
+  font-weight: 700;
+}
+.header-buttons{
+  justify-content: flex-end;
+}
+
+.header-buttons button{
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.header-buttons button svg{
+  margin-right: 8px;
+  font-size: 24px;
+}
+
+.header-buttons .try-premium{
+  filter : drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.2));
+  font-weight: 300;
+}
+
+.header-buttons .log-sign{
+  margin-left: 50px;
+  background: transparent;
+  color: #1E1E1E;
+}
+.header form{
+  background: #ffffff50;
+  padding: 2px;
+  border: 1px solid #9d00ff2c;
+  border-radius: 50px;
+  transition: all ease 0.3s;
+}
+.header form input[type=search]{
+  width: 30vw;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding: 0 20px;
+  font-size: 16px;
+}
+.header form input[type=search]::placeholder{
+  color: #9d00ffb9;
+  font-size: 14px;
+}
+.header form:focus-within, .header form:active{
+  border: 1px solid #9E00FF;
+  background: #ffffff80;
+
+}
+
+.header form button{
+  font-size: 20px;
+  font-weight: 300;
+  padding: 10px;
+  margin-left: 40px;
+}
+.header form select{
+  background-color: transparent;
+  border: none;
+  margin-left: 20px;
+  outline: none;
+}
+

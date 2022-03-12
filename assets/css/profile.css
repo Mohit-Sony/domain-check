@@ -1,0 +1,28 @@
+#profile-page {
+  display: grid;
+  height: 100vh;
+  width: 100vw;
+  grid-template-areas: "header header" "sidebar main-content"; }
+  #profile-page .box {
+    border-radius: 0px; }
+  #profile-page #header {
+    grid-area: header;
+    height: 15vh;
+    margin: 0;
+    display: grid;
+    grid-template-columns: auto auto; }
+    #profile-page #header .logo {
+      padding-left: 50px;
+      font-size: 32px; }
+    #profile-page #header .header-buttons {
+      padding-right: 50px; }
+      #profile-page #header .header-buttons a {
+        padding: 0 15px; }
+  #profile-page #sidebar {
+    grid-area: sidebar;
+    height: 85vh;
+    width: 18vw;
+    margin: 0;
+    background-color: #FAFAFA90; }
+  #profile-page #main-content {
+    grid-area: main-content; }

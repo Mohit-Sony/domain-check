@@ -1,0 +1,19 @@
+<% for(i of list){%>
+    <div class="list-div-container unclicked" id="<%= i._id %>">
+        <div class="row1-list-div-container">
+    
+            <div class="row1-domain-cont flex-left">
+                <% if( i.Type == 'Prefix'){%>
+                <%= i['Prefix/Suffix'] %><%= keyword %> <span style="color: #FF099C;"><%= ext%></span> 
+                <% }else{%>
+                    <%= keyword %><%= i['Prefix/Suffix'] %> <span style="color: #FF099C;"><%= ext%></span> 
+                <%} %>
+            </div>
+            <div class="row1-wishlist-cont flex-center ">
+                <span class="iconify" data-icon="ant-design:heart-outlined"></span>
+            </div>
+        </div>
+    </div>
+<%} %>
+
+

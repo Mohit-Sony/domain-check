@@ -1,0 +1,46 @@
+
+#profile-page{
+    display: grid;
+    height: 100vh;
+    width: 100vw;
+
+    grid-template-areas: "header header"
+    "sidebar main-content";
+
+    .box{
+        border-radius: 0px;
+    }
+
+    #header{
+        grid-area: header;
+        height: 15vh;
+        margin: 0;
+        display: grid;
+        grid-template-columns: auto auto;
+
+        .logo{
+            padding-left: 50px;
+            font-size: 32px;
+
+        }
+        .header-buttons{
+            padding-right: 50px;
+            a{
+                padding: 0 15px;
+            }
+        }
+    }
+    #sidebar{
+        grid-area: sidebar;
+        height:85vh ;
+        width: 18vw;
+        margin: 0;
+        background-color: #FAFAFA90;
+
+
+    }
+    #main-content{
+        grid-area: main-content;
+
+    }
+}
