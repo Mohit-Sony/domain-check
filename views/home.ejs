@@ -6,8 +6,9 @@
     <div class="hero container">
         <h1>Business Name Generator</h1>
         <h5>Generate 5000+ Brands name using prefix/suffix</h5>
-        <form action="" class="search-form flex-sp-between">
-            <input type="search" id="domain-search" name="domain-search" placeholder="Type your keyword here, e.g. 'News'">
+        <form action="/result" method="get" class="search-form flex-sp-between">
+            <input type="search" id="keyword" name="keyword" placeholder="Type your keyword here, e.g. 'News'">
+            <input type="text" style="display: none;" name="domain-ex" value=".com" >
             <button type="submit">Generate</button>
             </form>
         <h6>Check domain availability in one click</h6>
