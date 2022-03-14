@@ -15,11 +15,10 @@ header{
 
 .header{
   z-index: 100;
-  padding: 20px 60px;
+  padding: 60px 100px;
   width: 100%;
-  background: #ffffff63;
+  background: transparent;
   justify-content: space-between;
-  border: 1px solid rgba(255, 255, 255, 0.568);
   backdrop-filter: blur(5px);
   /* border-radius: 15px; */
 

@@ -189,4 +189,28 @@ for( let i of clickAbleDiv ){
 
 
 
+// -----ON SCROLL COLOR CHANGE----- 
 
+var headerBg = document.getElementById('headerr');
+var sidebarBg = document.getElementById('sidebar');
+
+window.addEventListener("scroll", function() {
+
+	let scroll = window.pageYOffset;
+
+	if (scroll > 50) {
+        headerBg.style.background = '#ffffffc0';
+        sidebarBg.style.background = '#ffffffc0';
+
+        // headerBg.className += 'header-scroll';
+        // sidebarBg.className += 'sidebar-scroll';
+        
+    } else if (scroll < 50) {
+		sidebarBg.style.background = '#ffffff63';
+        headerBg.style.background = '#ffffff63';
+        
+        // headerBg.className -= 'header-scroll';
+        // sidebarBg.className -= 'sidebar-scroll';
+	}
+
+});

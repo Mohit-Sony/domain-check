@@ -1,166 +1,59 @@
-:root{
-    --pink-color: #ff099c;
-    --purple-color: #9E00FF;
-    --glass-color: #ffffff63;
-    --white-border: rgba(255, 255, 255, 0.6) ;
-    --text-color: #1E1E1E;
-
-}
-
-*{
-    margin: 0;
-    padding: 0;
-    font-family: "poppins", sans-serif;
-    box-sizing: border-box;
-}
-
-body{
-    background: linear-gradient(180deg, #FFB7B7 0%, #727272 100%), radial-gradient(60.91% 100% at 50% 0%, #FFD1D1 0%, #260000 100%), linear-gradient(238.72deg, #FFDDDD 0%, #720066 100%), linear-gradient(127.43deg, #00FFFF 0%, #FF4444 100%), radial-gradient(100.22% 100% at 70.57% 0%, #FF0000 0%, #00FFE0 100%), linear-gradient(127.43deg, #B7D500 0%, #3300FF 100%);
-    background-blend-mode: screen, overlay, hard-light, color-burn, color-dodge, normal;
-    height: 100vh;
-    width: 100%;
-    /* padding: 20px; */
-    background-attachment: fixed;
-}
-
-* button{
-    border: none;
-    border-radius: 50px;
-    /* background-color: #9300ff; */
-    background: linear-gradient(93.29deg, rgba(158, 0, 255, 0.95) 10.35%, rgba(158, 0, 255, 0.8) 102.79%);
-    color: white;
-    padding: 8px 22px;
-    cursor: pointer;
-
-}
-
-.container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.header{
-    z-index: 100;
-    padding: 20px 60px;
-    /* position: absolute; */
-    width: 100%;
-    background: #ffffff63;
-    /* border-radius: 15px; */
-    justify-content: space-between;
-    border: 1px solid rgba(255, 255, 255, 0.6);
-}
-.logo{
-    font-size: 32px;
-    font-weight: 700;
-}
-.header-buttons{
-    justify-content: flex-end;
-}
-
-.header-buttons button{
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-}
-
-.header-buttons button svg{
-    margin-right: 8px;
-    font-size: 24px;
-}
-
-.header-buttons .try-premium{
-    filter : drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.2));
-    font-weight: 300;
-}
-
-.header-buttons .log-sign{
-    margin-left: 50px;
-    background: transparent;
-    color: #1E1E1E;
-}
-.header form{
-    background: #ffffff50;
-    padding: 2px;
-    border: 1px solid #9d00ff2c;
-    border-radius: 50px;
-    transition: all ease 0.3s;
-}
-.header form input[type=search]{
-    width: 30vw;
-    background-color: transparent;
-    border: none;
-    outline: none;
-    padding: 0 20px;
-    font-size: 16px;
-}
-.header form input[type=search]::placeholder{
-    color: #9d00ffb9;
-    font-size: 14px;
-}
-.header form:focus-within, .header form:active{
-    border: 1px solid #9E00FF;
-    background: #ffffff80;
-
-}
-
-.header form button{
-    font-size: 20px;
-    font-weight: 300;
-    padding: 10px;
-    margin-left: 40px;
-}
-.header form select{
-    background-color: transparent;
-    border: none;
-    margin-left: 20px;
-    outline: none;
-}
-
 /* main  */
 .main-content{
     display: flex;
 }
 .sidebar-panel{
-    width: 320px;
-    min-width: 320px;
-    height: 100vh;
+    width: 350px;
+    /* height: 100vh; */
     background: var(--glass-color);
     border-right: 1px solid var(--white-border);
-    padding: 40px;
-}
+   
+    position: fixed;
+      /* top: 130px; left: 20px; bottom: 20px; */
+      
+  
+  /* ---- 0 padding layout -----  */
+      top: 90px; left: 0; right: 0; bottom: 0;
+  }
 
-.sidebar-panel .user-links{
-     width: 100%;
-     float: left;
-}
+  .sidebar-panel .user-links{
+    width: 100%;
+    float: left;
+    margin-top: 20px;
+ }
 .sidebar-panel .user-links a{
-    margin-bottom: 40px;
+    width: 100%;
+    padding: 20px 40px;
     font-size: 20px;
     display: flex;
     align-items: center;
     color: var(--text-color);
     text-decoration: none;
-}
-.sidebar-panel .user-links a:active{
+    transition: 0.2s ease-in;
+  }
+  .sidebar-panel .user-links a:active{
     color: var(--pink-color);
-}
-
-.sidebar-panel .user-links  a .iconify{
+  }
+  .sidebar-panel .user-links a:hover{
+    background-color: #ffffff3f;
+  }
+  
+  .sidebar-panel .user-links  a .iconify{
     margin-right:  10px;
     font-size: 30px;
-}
-
-.sidebar-panel .user-links  a .wishlist-count{
+  }
+  
+  .sidebar-panel .user-links  a .wishlist-count{
     margin-left: 15px;
     background: var(--text-color);
-    padding: 5;
+    padding: 5px;
     text-align: center;
     border-radius: 30px;
     font-size: 18px;
     line-height: 14px;
     color: white;
-}
+  }
+  
 
 
 #extension{
@@ -169,10 +62,12 @@ body{
 
 
 /* Content Area >> */
+/* Content Area >> */
 .content-area{
     width: 100%;
-    padding: 40px 100px;
-}
+    padding: 20px;
+    padding-left: 380px;
+  }
 
 .content-area .wishlist-heading{
     font-weight: 500;
