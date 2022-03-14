@@ -49,9 +49,9 @@ a{
     font-style: none;
 }
 
-input{
+input, select{
     outline: none;
-    
+
 }
 
 * button{
