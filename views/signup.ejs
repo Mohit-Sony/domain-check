@@ -1,18 +1,43 @@
 <link rel="stylesheet" href="/css/signin.css">
 
-    <main>
-        
-        <div id="signin-block">
-            <form action="/user/create-user" method="post">
-                <input type="text" name="name" id="name" placeholder="Enter your name">
-                <input type="email" name="email" id="email" placeholder="Enter your e-mail">
-                <input type="password" name="password" id="password" placeholder="Enter your password">
-                <input type="password" name="confirm_password" id="confirm-password" placeholder="Re - Enter your password">
-                <input type="number" name="number" id="number" placeholder=" Enter your Number">
-                <input type="submit" value="submit">
+    <div class="flex-center container">
+        <main class="flex-center">
+            <div id="signin-block" class="box flex-center" style="width: 500px;">
+                <h2>Register</h2>
+                <form action="/user/create-user" method="post">
+                    <div class="form-input">
+                        <label for="name">Name </label>
+                        <input type="text" name="name" id="name" class="input-form" placeholder="Enter your name">
+                        </div>
 
-            </form>
+                    <div class="form-input">
+                        <label for="email">Phone Number </label>
+                        <input type="tel" name="number" id="number" class="input-form" placeholder=" Enter your Number">
+                        </div>
+                
+                    <div class="form-input">
+                        <label for="number">Email </label>
+                        <input type="email" name="email" id="email" class="input-form" placeholder="Enter your e-mail">
+                        </div>
+                
+                    <div class="form-input">
+                        <label for="password">Your Password </label>
+                        <input type="password" name="password" id="password" class="input-form" placeholder="Enter your password">
+                        </div>
+                    
+                    <div class="form-input">
+                        <label for="confirm-password">Re-enter Password </label>
+                        <input type="password" name="confirm_password" id="confirm-password" class="input-form" placeholder="Re - Enter your password">
+                        </div>
+
+                    <div class="form-input" >
+                        <button type="submit" value="Register" class="flex-sp-between">Register <span class="iconify" data-icon="dashicons:arrow-right-alt"></span></button>
+                        <span class="already-account">Already have an account? <a href="/user/sign-in" class="login">Login Here</a></span>
+                        </div>
+
+                </form>
 
 
-        </div>
-    </main>
+            </div>
+        </main>
+    </div>

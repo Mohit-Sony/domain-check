@@ -1,0 +1,54 @@
+.hero{
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    transform: translateY(-30px);
+}
+
+.hero h1{
+    font-size: 72px;
+    font-weight: 500;
+}
+
+.hero h5{
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.hero h6{
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.hero form{
+    background: #ffffff50;
+    padding: 15px;
+    border: 2px solid #9d00ff65;
+    border-radius: 50px;
+    margin: 20px 0px;
+    transition: all ease 0.3s;
+}
+.hero form input[type=search]{
+    width: 50vw;
+    height: 40px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 0px 20px;
+    font-size: 20px;
+}
+::placeholder{
+    color: #9e00ff90;
+    font-size: 18px;
+}
+.hero form:focus-within{
+    border: 2px solid #9E00FF;
+    background: #ffffff80;
+
+}
+
+.hero form button{
+    font-size: 20px;
+    font-weight: 300;
+    padding: 15px 50px;
+}

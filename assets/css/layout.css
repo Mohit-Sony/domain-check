@@ -28,6 +28,12 @@
     align-items: center;
     justify-content: right;
 }
+.flex-sp-between{
+    display:flex;
+    align-content: center;
+    align-items: center;
+    justify-content: space-between;
+}
 
 body{
     background: linear-gradient(180deg, #FFB7B7 0%, #727272 100%), radial-gradient(60.91% 100% at 50% 0%, #FFD1D1 0%, #260000 100%), linear-gradient(238.72deg, #FFDDDD 0%, #720066 100%), linear-gradient(127.43deg, #00FFFF 0%, #FF4444 100%), radial-gradient(100.22% 100% at 70.57% 0%, #FF0000 0%, #00FFE0 100%), linear-gradient(127.43deg, #B7D500 0%, #3300FF 100%);
@@ -36,6 +42,16 @@ body{
     height: 100vh;
     width: 100%;
     padding: 0px;
+}
+
+a{
+    text-decoration: none;
+    font-style: none;
+}
+
+input{
+    outline: none;
+    
 }
 
 * button{
@@ -74,4 +90,10 @@ body{
     border: 1px solid rgba(255, 255, 255, 0.568);
     padding: 20px;
     margin: 10px;
+}
+
+* label{
+    font-size: 16px;
+    color: #5c5c5c;
+    font-weight: 500;
 }

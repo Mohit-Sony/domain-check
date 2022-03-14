@@ -1,26 +1,27 @@
         <link rel="stylesheet" href="/css/signin.css">
-        <main class="flex-center">
-            <div id="signin-block" class="box flex-center">
-                <h1>Login Here</h1>
-                <form action="/user/create-session" method="post">
-                    
-                    <div class="form-input flex-center">
-                        <label for="email">Email </label>
-                        <input type="email" name="email" id="email" class="input-form" placeholder="Enter your e-mail">
+        <div class="flex-center container">
+            <main class="flex-center">
+                <div id="signin-block" class="box flex-center">
+                    <h2>Login into DNG</h2>
+                    <form action="/user/create-session" method="post">
+                        
+                        <div class="form-input">
+                            <label for="email">Email </label>
+                            <input type="email" name="email" id="email" class="input-form" placeholder="Enter your e-mail">
 
-                    </div>
-                    <div class="form-input">
-                        <label for="password">Password</label>
-                        <input type="password" name="password" id="password" class="input-form" placeholder="Enter your password">
+                        </div>
+                        <div class="form-input">
+                            <label for="password">Password</label>
+                            <input type="password" name="password" id="password" class="input-form" placeholder="Enter your password">
 
-                    </div>
-                    <div class="form-input flex-center" >
-                        <input type="submit" value="submit">
-
-                    </div>
-                </form>
-    
-    
-            </div>
-        </main>
-       
+                        </div>
+                        <div class="form-input" >
+                            <button type="submit" value="Login" class="flex-sp-between">Login <span class="iconify" data-icon="dashicons:arrow-right-alt"></span></button>
+                            <span class="create-account">Don't have an account? <a href="/user/sign-up" class="register">Register Now</a></span>
+                        </div>
+                    </form>
+        
+        
+                </div>
+            </main>
+        </div>
