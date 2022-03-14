@@ -30,10 +30,9 @@ async function check_avail(domainName){
 }
 
 async function othextcheck(i,domain){
+    i.classList.remove("clicked");
+    i.classList.add("clicked-othext");
 
-    {
-
-    }
     //look for other extentions add them in html
     value = ""
     i.innerHTML += ` <div class="oth-ext-cont">
