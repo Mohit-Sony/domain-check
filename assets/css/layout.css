@@ -9,7 +9,9 @@
     font-family: "poppins", sans-serif;
     box-sizing: border-box;
 }
-
+.flex{
+    display: flex;
+}
 .flex-center{
     display:flex;
     align-content: center;
@@ -41,7 +43,7 @@ body{
     background-attachment: fixed;
     height: 100vh;
     width: 100%;
-    padding: 0px;
+    padding: 20px;
 }
 
 a{
