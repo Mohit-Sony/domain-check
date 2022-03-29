@@ -186,7 +186,7 @@
 /* ----- CLICKED ----- */
 
 .clicked{
-    width: calc(40% + 20px);    
+    /* width: calc(40% + 20px);     */
 
 }
 
