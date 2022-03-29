@@ -89,7 +89,7 @@
 
  /* Premium Card  */
 .sidebar-filterbox .premium-card span{
-    background: #ff099c;
+    background: var(--purple-color);
     padding: 5px 10px;
     color:white;
     border-radius: 5px;
@@ -98,7 +98,7 @@
     top: -15px;
 }
 .sidebar-filterbox .premium-card{
-    background-color: #9E00FF;
+    background-color: var(--pink-color);
     border-radius: 10px;
     position: relative;
     padding: 20px;
@@ -117,11 +117,13 @@
 }
 
 .sidebar-filterbox .premium-card button{
-    background: #ff099c;
+    text-align: center;
+    background: var(--purple-color);
     width: 100%;
     margin-top: 15px;
     border-radius: 5px;
     font-size: 18px;
+    font-weight: 300;
 }
 
 /* sidebar ends here */
@@ -155,12 +157,12 @@
     padding: 10px;
     border-radius: 8px;
     border: solid #ffffff 1px;
-    text-transform: capitalize;
+    text-transform: uppercase;
     cursor: pointer;
-    transition: 0.25s ease;
+    transition: 0.35s ease;
 }
 .list-div-container:hover{
-    border:1px dashed #ff099d9f;
+    border:1px dashed var(--pink-color);
     transform: scale(1.05);
 }
 
@@ -180,49 +182,98 @@
 .row1-list-div-container .row1-wishlist-cont form button:hover,
 .row1-list-div-container .row1-wishlist-cont span:hover{
     color: var(--pink-color);
-    background-color: #ffddf7bb;
+    background-color: #ccd4ff57;
 }
 
 /* ----- CLICKED ----- */
 
 .clicked{
-    width: calc(40% + 20px);    
+    /* width: calc(40% + 20px);     */
 
 }
 
 .clicked .row1-list-div-container{
     display: grid;
     grid-template-columns: 40px auto 40px;
+    margin-bottom: 10px;
 }
 .avail-tick{
     color: white;
-    background-color: #42ED27;
+    background-color: #2fdb15;
     padding: 1px;
+}
+.row1-icon-cont .icon-cont svg{
+    font-size: 24px;
 }
 .register-now{
     height: auto;
-    background-color: #9E00FF;
+    background-color: var(--pink-color);
     color: #ffffff;
     border-radius: 3px;
-    padding: 3px;
-    font-size: 10px;
-    font-weight: 200;
-
-
+    padding: 5px 8px;
+    font-size: 12px;
+    font-weight: 400;
+}
+.register-now:hover{
+    opacity: 0.9;
 }
 
+
 .row2-list-div-container{
-    display: grid;
-    grid-template-columns: 50% 50%;
-    font-size: 12px;
-    font-weight: 200;
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
 .oth-ext-cont{
-    display: flex;
-    flex-wrap: wrap;
+    border-top: 1px solid #d4efff;
+    margin-top: 10px;
+}
+.oth-ext-cont .list-div-container{
+    padding: 5px;
+    margin-top: 6px;
+}
+.oth-ext-cont .list-div-container .row1-list-div-container{
+    margin-bottom: 0;
+    padding: 4px 0;
+}
+.oth-ext-cont .list-div-container:hover{
+
+    transform: none;
+}
+.oth-ext-cont .list-div-container:first-child{
+    margin-top: 10px;
+}
+.a-oth-ext{
+    text-transform: none;
+}
+.a-oth-ext:hover{
+    text-decoration: underline;
+    /* color: var(--purple-color); */
 }
 .clicked-othext{
     width: 100%;    
+
+}
+
+
+
+
+
+/* --- Mobile -----  */
+@media only screen and (max-width: 768px) {
+
+    .sidebar-filterbox{
+    display: none;
+    }
+    #mca{
+        padding: 0;
+        /* padding-top: 20px; */
+        width: 100%;
+    }
+    #result-list-container{
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 15px;
+    }
 
 }

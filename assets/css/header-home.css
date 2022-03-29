@@ -102,3 +102,35 @@ header{
   outline: none;
 }
 
+
+/* --- For MobilePhones ---  */
+
+
+@media only screen and (max-width: 768px) {
+
+  .header{
+    padding: 20px 25px;
+  }
+  .logo{
+    font-size: 26px;
+  }
+.header-buttons a button span,
+.header-buttons a li span{
+  display: none;
+  font-size: 0px;
+  }
+  .header-buttons button{
+    padding: 10px;
+    border-radius: 30px;
+  }
+  .header-buttons .icon svg.iconify{
+  margin: 0px;
+  font-size: 28px;
+  }
+.header-buttons .log-sign{
+  margin-left: 15px;
+  }
+  .header form button{
+    margin-left: 0;
+  }
+}
