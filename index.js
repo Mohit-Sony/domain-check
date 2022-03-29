@@ -13,6 +13,8 @@ const MongoDbStore = require('connect-mongo');
 const request = require('request');
 // const http = require('http');
 var cors = require('cors');
+const passportGoogle = require('./config/passport-google-strategy');
+
 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');

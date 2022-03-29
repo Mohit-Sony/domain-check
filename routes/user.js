@@ -23,6 +23,8 @@ routes.post('/create-session',passport.authenticate(
 
 routes.get('/log-out',userController.log_out);
 
+routes.get('/auth/google',passport.authenticate('google',{scope:['profile','email']}));
+routes.get('/auth/google/callback',passport.authenticate('google',{failureRedirect:'/user/sign-in'}),userController.create_session);
 
 
 
