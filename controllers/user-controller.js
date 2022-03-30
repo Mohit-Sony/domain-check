@@ -106,11 +106,13 @@ module.exports.forgot_password = async function(req,res){
         let key = crypto.randomBytes(20).toString('hex')
         let user = await User.findOne({email:req.body.email});
 
-
-        mailer.forgot_password(user);
-        //noty setup 
-
-        
+        if(user){
+            mailer.forgot_password(user);
+            //noty setup 
+        }else{
+            console.log(`user not exists`);
+            return res.redirect('/')
+        }
 
         return res.redirect('/user/sign-in');
 
