@@ -18,6 +18,9 @@ const userSchema = new mongoose.Schema({
         type: String,
         // required: true
     },
+    auth_key:{
+        type:String
+    },
     wishlist:[
         {
             domainname:{
@@ -25,7 +28,8 @@ const userSchema = new mongoose.Schema({
                 required : true
             }
         }
-    ]
+    ],
+
 }, {
     timestamps: true
 });

@@ -17,7 +17,7 @@ routes.post('/create-user',userController.create_user);
 
 routes.post('/create-session',passport.authenticate(
     'local',
-    {failureRedirect : 'user/sign-in'},
+    {failureRedirect : '/user/sign-in'},
     ) ,userController.create_session)
 ;
 
@@ -25,8 +25,10 @@ routes.get('/log-out',userController.log_out);
 
 routes.get('/auth/google',passport.authenticate('google',{scope:['profile','email']}));
 routes.get('/auth/google/callback',passport.authenticate('google',{failureRedirect:'/user/sign-in'}),userController.create_session);
-
-
+routes.post('/forgot-pass',userController.forgot_password);
+routes.get('/forgot',userController.forget_pass_page);
+routes.get('/forgot-password/reset', userController.forgot_password_reset_recive);
+routes.post('/forgot-password/new-password',userController.reset_pass_req);
 
 module.exports = routes;
 
