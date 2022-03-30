@@ -40,25 +40,34 @@
                 <li>Personalized list for domain availability</li>
                 <li>Export available domain list to know opinion of others in your group</li>
             </ul>
-            <button class="get-premium" href="#">Get Premium</button>
+            <button class="get-premium flex-center" href="#">Get Premium</button>
         </div>
 
 
     </div>
     <div id="mca">
         <div id="mca-heading">
-            <h3>Showing 101 results for <span style="color: #FF099C; text-transform: uppercase;">"<%= keyword %>"</span></h3>
+            <h3>Showing 101 results for <span style="color: var(--pink-color); text-transform: uppercase;">"<%= keyword %>"</span></h3>
         </div>
         <div id="result-list-container">
             <div class="list-div-container unclicked">
                 <div class="row1-list-div-container flex-sp-between">
 
                     <div class="row1-domain-cont flex-left">
-                        <%= keyword %> <span style="color: #FF099C;"><%= ext  %></span> 
+                        <%= keyword %> <span style="color: var(--pink-color);"><%= ext  %></span> 
                     </div>
+
+                   
                     <div class="row1-wishlist-cont flex-center ">
-                        <span class="iconify" data-icon="ant-design:heart-outlined"></span>
+                        <form action="/user/profile/" method="post">
+                            <input style="display: none;" type="text" name="item" id="">
+                            <button type="submit" class="wishlist-btn">
+                                <span class="iconify" data-icon="ant-design:heart-outlined"></span>
+                            </button>
+                            
+                        </form>
                     </div>
+                    
                 </div>
             </div>
             <%- include('partials/result-list.ejs') %>

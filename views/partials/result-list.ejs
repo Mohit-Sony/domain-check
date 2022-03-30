@@ -5,10 +5,10 @@
             <div class="row1-domain-cont flex-left">
                 <% if( i.Type == 'Prefix'){%>
                     <% domainName = i['Prefix/Suffix']+keyword+ext  %>
-                <%= i['Prefix/Suffix'] %><%= keyword %> <span style="color: #FF099C;"><%= ext%></span> 
+                <%= i['Prefix/Suffix'] %><%= keyword %> <span style="color: var(--pink-color)"><%= ext%></span> 
                 <% }else{%>
                     <% domainName = keyword+i['Prefix/Suffix']+ext  %>
-                    <%= keyword %><%= i['Prefix/Suffix'] %> <span style="color: #FF099C;"><%= ext%></span> 
+                    <%= keyword %><%= i['Prefix/Suffix'] %> <span style="color: var(--pink-color)"><%= ext%></span> 
                 <%} %>
             </div>
             <div class="row1-wishlist-cont flex-center ">

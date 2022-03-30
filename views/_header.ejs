@@ -3,45 +3,53 @@
 <header>
     <nav>
         <div class="header container" id="headerr">
-            <a href="/"><div class="logo">DOMAIN</div></a>
-            <form action="/result/" class="search-form container" method="get">
+            <a href="/">
+                <div class="logo">DOMAIN</div>
+            </a>
+            <form action="/result/" class="search-form flex-sp-between" method="get">
                 <input type="search" id="keyword" name="keyword" placeholder="Type your keyword here, e.g. 'News'">
-                <span>|</span>
-                <select name="domain-ex" id="extention">
-                    <option value=".com">.com</option>
-                    <option value=".in">.in</option>
-                    <option value=".co.in">.co.in</option>
-                    <option value=".org">.org</option>
-                    <option value=".net">.net</option>
-                    <option value=".io">.io</option>
-                </select>
-
-                <button type="submit"><span class="iconify" data-icon="akar-icons:search"></span></button>
+                <div class="button-grp flex-right">
+                    <div class="ext-select"><span>|</span>
+                        <select name="domain-ex" id="extention">
+                            <option value=".com">.com</option>
+                            <option value=".in">.in</option>
+                            <option value=".co.in">.co.in</option>
+                            <option value=".org">.org</option>
+                            <option value=".net">.net</option>
+                            <option value=".io">.io</option>
+                        </select>
+                    </div>
+                    <button type="submit"><span class="iconify" data-icon="akar-icons:search"></span></button>
+                </div>
             </form>
             <div class="header-buttons container">
 
                 <a href="/#">
-                    <button class="try-premium"><span class="iconify" data-icon="fluent:premium-32-regular"></span>Try Premium</button>    
+                    <button class="try-premium icon"><span class="iconify"
+                            data-icon="fluent:premium-32-regular"></span><span>Try Premium</span></button>
                 </a>
 
                 <% if(locals.user){%>
 
-                    <a href="/user/profile" class="log-sign"> 
-                        <li class="container"><span class="iconify" data-icon="ep:user"></span> Hi, <%= user.name %></li>
+                    <a href="/user/profile" class="log-sign">
+                        <li class="container icon"><span class="iconify" data-icon="ep:user"></span> <span>Hi, <%=
+                                    user.name %></span></li>
                     </a>
                     <a href="/user/log-out" class="log-sign">
-                        <li class="container"><span class="iconify" data-icon="ic:outline-logout"></span>Logout</li>
+                        <li class="container icon"><span class="iconify"
+                                data-icon="ic:outline-logout"></span><span>Logout</span></li>
 
                     </a>
 
 
-                <%} else{ %>
-                    <a href="/user/sign-in" class="log-sign">
-                        <li class="container"><span class="iconify" data-icon="ep:user"></span>Login/SignUp</li>
-           
-                    </a>
-                
-                <%} %>
+                    <%} else{ %>
+                        <a href="/user/sign-in" class="log-sign">
+                            <li class="container icon"><span class="iconify"
+                                    data-icon="ep:user"></span><span>Login/SignUp</span></li>
+
+                        </a>
+
+                        <%} %>
 
             </div>
         </div>

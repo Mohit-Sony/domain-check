@@ -24,7 +24,7 @@
 .hero form{
     background: #ffffff50;
     padding: 15px;
-    border: 2px solid #9d00ff65;
+    border: 2px solid var(--purple-color);
     border-radius: 50px;
     margin: 20px 0px;
     transition: all ease 0.3s;
@@ -39,11 +39,11 @@
     font-size: 20px;
 }
 ::placeholder{
-    color: #9e00ff90;
+    color: var(--purple-color);
     font-size: 18px;
 }
 .hero form:focus-within{
-    border: 2px solid #9E00FF;
+    border: 2px solid var(--pink-color);
     background: #ffffff80;
 
 }
@@ -52,4 +52,44 @@
     font-size: 20px;
     font-weight: 300;
     padding: 15px 50px;
+}
+
+
+
+
+@media only screen and (max-width: 768px) {
+    .hero{
+    padding: 12vh 0vh;
+    }
+    .hero h1{
+    font-size: 24px;
+    text-align: center;
+    font-weight: 700;
+
+    }
+    .hero h5, .hero h6{
+        font-size: 14px;
+        text-align: center;
+    }
+    .hero form{
+        padding: 5px;
+    }
+    .hero form input[type=search]{
+        padding: 0px 10px;
+    }
+    ::placeholder{
+    font-size: 14px;
+    }
+    .hero form button{
+        font-size: 16px;
+        font-weight: 300;
+        padding: 8px 24px;
+    }
+    .hero form input[type=search]{
+        width: 80%;
+    }
+
+
+
+
 }

@@ -8,24 +8,24 @@
             
             <div class="header-buttons container">
 
-                <a href="/#">
-                    <button class="try-premium"><span class="iconify" data-icon="fluent:premium-32-regular"></span>Try Premium</button>    
+                <a href="/#" >
+                    <button class="try-premium icon"><span class="iconify" data-icon="fluent:premium-32-regular"></span><span>Try Premium</span></button>    
                 </a>
 
                 <% if(locals.user){%>
 
                     <a href="/user/profile" class="log-sign"> 
-                        <li class="container"><span class="iconify" data-icon="ep:user"></span> Hi, <%= user.name %></li>
+                        <li class="container icon"><span class="iconify" data-icon="ep:user"></span> <span>Hi, <%= user.name %></span></li>
                     </a>
                     <a href="/user/log-out" class="log-sign">
-                        <li class="container"><span class="iconify" data-icon="ic:outline-logout"></span>Logout</li>
+                        <li class="container icon"><span class="iconify" data-icon="ic:outline-logout"></span> <span>Logout</span></li>
 
                     </a>
 
 
                 <%} else{ %>
                     <a href="/user/sign-in" class="log-sign">
-                        <li class="container"><span class="iconify" data-icon="ep:user"></span>Login/SignUp</li>
+                        <li class="container icon"><span class="iconify" data-icon="ep:user"></span><span>Login/SignUp</span></li>
            
                     </a>
                 

@@ -5,11 +5,11 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
-.input-form{
+.input-form[value=""]{
     background-color: transparent;
     border: 2px solid #969696;
     border-radius: 10px;
-    padding: 10px 20px;
+    padding: 10px 15px;
     font-size: 18px;
     letter-spacing: 0.9;
     width: 100%;
@@ -18,10 +18,16 @@
     transition: 0.3s ease;
 }
 
-.input-form:focus{
-    border-color: var(--purple-color);
+.input-form:focus,
+.input-form:valid{
+    border-color: var(--pink-color);
     background-color: #ffffffaf;
 }
+.input-form:invalid{
+    border-color: #ff4444;
+    background-color: #ffffffaf;
+}
+
 
 .input-form::placeholder{
     color: #31313170;
@@ -30,7 +36,7 @@
   }
 
 .form-input{
-    padding: 15px;
+    padding: 10px;
 }
 .form-input label{
     display: block;
@@ -44,26 +50,32 @@
     text-align: center;
     font-size: 18px;
     font-weight: 400;
+    margin-top: 10px;
 
 }
 
 
 .box{
-    width: 400px;
+    width: 380px;
     padding: 20px;
+    margin: 0;
 }
 form{
     width: 100%;
     margin-top: 20px;
 }
-.create-account, .already-account{
+.create-account, .already-account, .go-to{
     display: block;
     width: 100%;
     text-align: center;
     font-size: 14px;
-    margin-top: 15px;
+    margin-top: 20px;
 }
-.create-account a, .already-account a{
-    color: var(--purple-color);
-    font-weight: 500;
+.create-account a, .already-account a, .go-to a{
+    color: var(--pink-color);
+    font-weight: 400;
+}
+.go-to{
+    /* font-style: italic; */
+    margin-top: 5px;
 }

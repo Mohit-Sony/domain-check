@@ -30,9 +30,8 @@ async function check_avail(domainName){
 }
 
 async function othextcheck(i,domain){
-    i.classList.remove("clicked");
+    // i.classList.remove("clicked");   Commented by ANIL
     i.classList.add("clicked-othext");
-
     //look for other extentions add them in html
     value = ""
     i.innerHTML += ` <div class="oth-ext-cont">
@@ -109,7 +108,7 @@ async function afterclick(i){
             <div class="row1-list-div-container">
                 <div class="row1-icon-cont">
                     <div class="icon-cont avail-tick flex-center">
-                        <span class="iconify" data-icon="charm:circle-tick"></span>
+                    <span class="iconify" data-icon="teenyicons:tick-small-outline"></span>
                     </div>
                 </div>
                 <div class="row1-domain-cont flex-left">
@@ -130,7 +129,7 @@ async function afterclick(i){
                 </div>
                 <div class="row2-oth-ext-cont">
                     <a class="a-oth-ext" href="#">
-                        Oth. Extention
+                       Other Extensions <span class="iconify" data-icon="ep:arrow-right-bold"></span>
                     </a>
                 </div>
             </div>`
@@ -140,7 +139,7 @@ async function afterclick(i){
             i.innerHTML = `                <div class="row1-list-div-container">
             <div class="row1-icon-cont">
                 <div class="icon-cont avail-tick flex-center" style="background-color: red;">
-                    <span class="iconify" data-icon="gridicons:cross-small" style="color: white;"></span>                      
+                <span class="iconify" data-icon="bx:x"></span>                      
                 </div>
             </div>
             <div class="row1-domain-cont flex-left">
@@ -153,12 +152,12 @@ async function afterclick(i){
         </div>
         <div class="row2-list-div-container">
             <div class="row2-register-now-cont flex-center">
-                <span style="color: red;">Oops</span>
+                <span style="color: red;">Oops!</span>
                 
             </div>
             <div class="row2-oth-ext-cont">
-                <a class="a-oth-ext" href="#">
-            Oth. Extention
+                <a class="a-oth-ext" href="#" onclick = "anil()">
+                    Other Extensions <span class="iconify oth-arrow" data-icon="ep:arrow-right-bold"></span>
                 </a>
             </div>
         </div>`
@@ -186,6 +185,19 @@ for( let i of clickAbleDiv ){
 
         
 }
+
+
+
+// let otherArrow = document.getElementsByClassName('oth-arrow');
+// let otherLink = document.getElementsByClassName('a-oth-ext');
+
+// otherLink.addEventListener("click", function(){
+//     otherArrow.style.transform = "rotate(90deg)";
+// });
+
+// function anil(){
+//     otherArrow.style.transform = "rotate(90deg)";
+// };
 
 
 

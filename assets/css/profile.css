@@ -36,7 +36,7 @@
   color: var(--pink-color);
 }
 .sidebar-panel .user-links a:hover{
-  background-color: #ffffff3f;
+  background-color: #d9e0ffb4;
 }
 
 .sidebar-panel .user-links  a .iconify{
