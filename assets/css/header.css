@@ -79,6 +79,7 @@ header{
   outline: none;
   padding: 0 20px;
   font-size: 16px;
+  text-transform: uppercase;
 }
 .header form input[type=search]::placeholder{
   color: var(--pink-color);

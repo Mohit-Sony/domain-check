@@ -91,8 +91,8 @@ input, select{
 }
 
 .icon-cont{
-    height: 30px;
-    width: 30px;
+    height: 24px;
+    width: 24px;
     border-radius: 50%;
     
 }
@@ -130,8 +130,7 @@ input, select{
 
 ::-webkit-scrollbar-thumb
 {
-	background-color: rgb(177, 207, 248); 
-    border-radius: 30px;	
+	background-color: rgb(177, 207, 248);	
 }
 
 

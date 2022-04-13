@@ -53,11 +53,11 @@ async function othextcheck(i,domain){
             <div class="row1-list-div-container">
                 <div class="row1-icon-cont">
                     <div class="icon-cont avail-tick flex-center">
-                        <span class="iconify" data-icon="charm:circle-tick"></span>
+                        <span class="iconify" data-icon="teenyicons:tick-circle-solid"></span>
                     </div>
                 </div>
                 <div class="row1-domain-cont flex-left">
-                    ${domain} <span style="color: #FF099C;">.${tldext}</span> 
+                    ${domain} <span style="color: var(--pink-color)">.${tldext}</span> 
                 </div>
                 <div class="row1-wishlist-cont flex-center ">
                     <span class="iconify" data-icon="ant-design:heart-outlined"></span>
@@ -76,7 +76,7 @@ async function othextcheck(i,domain){
                 </div>
 
                 <div class="row1-domain-cont flex-left">
-                    ${domain} <span style="color: #FF099C;">.${tldext}</span> 
+                    ${domain} <span style="color: var(--pink-color)">.${tldext}</span> 
                 </div>
 
                 <div class="row1-wishlist-cont flex-center ">
@@ -112,7 +112,7 @@ async function afterclick(i){
                     </div>
                 </div>
                 <div class="row1-domain-cont flex-left">
-                ${domain} <span style="color: #FF099C;">.${ext}</span> 
+                ${domain} <span style="color: var(--pink-color);">.${ext}</span> 
                 </div>
                 <div class="row1-wishlist-cont flex-center ">
                     <span class="iconify" data-icon="ant-design:heart-outlined"></span>
@@ -143,7 +143,7 @@ async function afterclick(i){
                 </div>
             </div>
             <div class="row1-domain-cont flex-left">
-                ${domain} <span style="color: #FF099C;">.${ext}</span> 
+                ${domain} <span style="color: var(--pink-color);">.${ext}</span> 
 
             </div>
             <div class="row1-wishlist-cont flex-center ">
