@@ -23,10 +23,11 @@ const userSchema = new mongoose.Schema({
     },
     wishlist:[
         {
-            domainname:{
-                type:String,
-                required : true
+            wish:{
+                type:mongoose.Types.ObjectId,
+                ref:'Wish'
             }
+           
         }
     ],
 

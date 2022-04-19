@@ -12,8 +12,9 @@
                 <%} %>
             </div>
             <div class="row1-wishlist-cont flex-center ">
-                <form action="/user/profile/" method="post">
-                    <input style="display: none;" type="text" name="item" value ="<%= domainName %>" id="">
+                <form action="/user/profile/add-to-wishlist" method="post">
+                    <input style="display: none;" type="text" name="domain" value ="<%= domainName %>" id="">
+                    
                     <button type="submit" class="wishlist-btn">
                         <span class="iconify" data-icon="ant-design:heart-outlined"></span>
                     </button>

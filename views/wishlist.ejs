@@ -15,17 +15,27 @@
             </div>
 
 <div class="content-area">
-    <h2 class="wishlist-heading">Hope you found your favorite out of these 9 Brands!</h2>
+    <h2 class="wishlist-heading">Hope you found your favorite out of these <%= data.length %> Brands!</h2>
     <div class="wishlist-cont">
         <ul class="wishlist-items">
+            <% for (let i of data){ %>
             <li class="item">
-                <h2 class="domain-text">mynews<span id="extension">.com</span></h2>
+                <h2 class="domain-text"><%= i.wish.domain %></h2>
                 <div class="buttons">
                     <a href=""><span class="iconify cart" data-icon="fluent:cart-20-regular"></span></a>
-                    <a href=""><span class="iconify tick" data-icon="teenyicons:tick-circle-solid"></span></a>
-                    
+                    <form action="/user/profile/add-to-wishlist" method="post">
+                        <input style="display: none;" type="text" name="domain" value ="<%= i.wish.domain %>" id="">
+                        
+                        <button type="submit" class="wishlist-btn">
+                            <span class="iconify" data-icon="ep:remove"></span>
+                        </button>
+                        
+                    </form>                    
                 </div>
             </li>
+            <% } %>
+
+
         </ul>
 
 

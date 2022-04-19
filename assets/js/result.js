@@ -226,3 +226,5 @@ window.addEventListener("scroll", function() {
 	}
 
 });
+
+let header_searchbar = $('#headerr input');
