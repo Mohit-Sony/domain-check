@@ -15,7 +15,8 @@ module.exports.sign_in = function(req,res){
     }
     
     res.render('signin',{
-        title:"signin|site name"
+        title:"signin|site name",
+        keyword:'',
     })
 };
 
@@ -26,13 +27,15 @@ module.exports.sign_up = function(req,res){
     }
 
     res.render('signup',{
-        title :"signup | site name"
+        title :"signup | site name",
+        keyword:'',
     })
 }
 
 module.exports.profile = function(req,res){
     res.render('profile',{
-        title:"profile | site name"
+        title:"profile | site name",
+        keyword:'',
     })
 }
 
@@ -133,7 +136,8 @@ module.exports.forgot_password_reset_recive = async function(req,res){
             //change auth key and send to password redirect page
             return res.render('password_reset_forgot',{
                 user:user.id,
-                auth_key:user.auth_key
+                auth_key:user.auth_key,
+                keyword:'',
 
             })
         }else{

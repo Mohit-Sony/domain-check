@@ -23,7 +23,7 @@
                 <h2 class="domain-text"><%= i.wish.domain %></h2>
                 <div class="buttons">
                     <a href=""><span class="iconify cart" data-icon="fluent:cart-20-regular"></span></a>
-                    <form action="/user/profile/add-to-wishlist" method="post">
+                    <form action="/user/profile/remove-from-wishlist" method="post">
                         <input style="display: none;" type="text" name="domain" value ="<%= i.wish.domain %>" id="">
                         
                         <button type="submit" class="wishlist-btn">

@@ -59,14 +59,16 @@
 
                    
                     <div class="row1-wishlist-cont flex-center ">
-                        <form action="/user/profile/" method="post">
-                            <input style="display: none;" type="text" name="item" id="">
+                        <form action="/user/profile/add-to-wishlist" method="post">
+                            <input style="display: none;" type="text" name="domain" value ="<%= keyword %><%= ext  %>" id="">
+                            
                             <button type="submit" class="wishlist-btn">
                                 <span class="iconify" data-icon="ant-design:heart-outlined"></span>
                             </button>
                             
                         </form>
                     </div>
+
                     
                 </div>
             </div>
@@ -78,3 +80,4 @@
     </div>
 </section>
 <script src="/js/result.js"></script>
+<script src="/js/ajax.js"></script> 

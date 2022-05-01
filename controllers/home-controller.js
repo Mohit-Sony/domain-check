@@ -4,7 +4,10 @@ const request = require('request');
 
 
 module.exports.home = function(req,res){
-    res.render('home');
+    res.render('home',{
+        keyword:'',
+
+    });
 }
 module.exports.result = async function(req,res){
     try {

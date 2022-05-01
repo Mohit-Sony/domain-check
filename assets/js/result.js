@@ -60,7 +60,14 @@ async function othextcheck(i,domain){
                     ${domain} <span style="color: var(--pink-color)">.${tldext}</span> 
                 </div>
                 <div class="row1-wishlist-cont flex-center ">
-                    <span class="iconify" data-icon="ant-design:heart-outlined"></span>
+                    <form action="/user/profile/add-to-wishlist" method="post">
+                        <input style="display: none;" type="text" name="domain" value ="${domain}.${tldext}" id="">
+                        
+                        <button type="submit" class="wishlist-btn">
+                            <span class="iconify" data-icon="ant-design:heart-outlined"></span>
+                        </button>
+                        
+                    </form>
                 </div>
             </div>
         </div>`
@@ -80,12 +87,53 @@ async function othextcheck(i,domain){
                 </div>
 
                 <div class="row1-wishlist-cont flex-center ">
-                    <span class="iconify" data-icon="ant-design:heart-outlined"></span>
+                    <form action="/user/profile/add-to-wishlist" method="post">
+                        <input style="display: none;" type="text" name="domain" value ="${domain}.${tldext}" id="">
+                        
+                        <button type="submit" class="wishlist-btn">
+                            <span class="iconify" data-icon="ant-design:heart-outlined"></span>
+                        </button>
+                        
+                    </form>
                 </div>
             </div>
         </div>`
         }//if not available
+
+        let add_wish = i.getElementsByClassName('wishlist-btn');
+
+
+        for (let x of add_wish){
+            // console.log(i);
+            x.addEventListener('click',function(e){
+                e.preventDefault();
+                e.stopPropagation();
+                let form = $(x.parentNode);
+                // console.log(form)
+                // console.log(i.parentNode);
+                // console.log('serialise' , i.parentElement.serialize());
+                $.ajax({
+                    type:'post',
+                    url: '/user/profile/add-to-wishlist',
+                    data: form.serialize(),
+                    success: function(data){
+                        // console.log(data.data);
+                        // let newPost = newPostDom(data.data.post);
+                        $('button' , form ).html('<span class="iconify" data-icon="ant-design:heart-filled" style="color: green;"></span>');
+                        // deletePost($(' .delete-post-button' ,newPost ));
+                        // addComment( data.data.post._id );
+                        // deletecomment($(' delete-comment-button',newPost));
+                    },error: function(error){
+                        console.log(error.responseText);
+                    }
+                })
+                
+            })
+        }
+        
     } 
+
+
 }
 
 async function afterclick(i){
@@ -115,7 +163,14 @@ async function afterclick(i){
                 ${domain} <span style="color: var(--pink-color);">.${ext}</span> 
                 </div>
                 <div class="row1-wishlist-cont flex-center ">
-                    <span class="iconify" data-icon="ant-design:heart-outlined"></span>
+                <form action="/user/profile/add-to-wishlist" method="post">
+                    <input style="display: none;" type="text" name="domain" value ="${domain}.${ext}" id="">
+                    
+                    <button type="submit" class="wishlist-btn">
+                        <span class="iconify" data-icon="ant-design:heart-outlined"></span>
+                    </button>
+                    
+                </form>
                 </div>
             </div>
             <div class="row2-list-div-container">
@@ -147,7 +202,14 @@ async function afterclick(i){
 
             </div>
             <div class="row1-wishlist-cont flex-center ">
-                <span class="iconify" data-icon="ant-design:heart-outlined"></span>
+            <form action="/user/profile/add-to-wishlist" method="post">
+                <input style="display: none;" type="text" name="domain" value ="${domain}.${ext}" id="">
+                
+                <button type="submit" class="wishlist-btn">
+                    <span class="iconify" data-icon="ant-design:heart-outlined"></span>
+                </button>
+                
+            </form>
             </div>
         </div>
         <div class="row2-list-div-container">
@@ -169,6 +231,37 @@ async function afterclick(i){
             console.log('clicked');
             othextcheck(i,domain);
         });
+
+        let add_wish = i.getElementsByClassName('wishlist-btn');
+
+
+        for (let x of add_wish){
+            // console.log(i);
+            x.addEventListener('click',function(e){
+                e.preventDefault();
+                e.stopPropagation();
+                let form = $(x.parentNode);
+                // console.log(form)
+                // console.log(i.parentNode);
+                // console.log('serialise' , i.parentElement.serialize());
+                $.ajax({
+                    type:'post',
+                    url: '/user/profile/add-to-wishlist',
+                    data: form.serialize(),
+                    success: function(data){
+                        // console.log(data.data);
+                        // let newPost = newPostDom(data.data.post);
+                        $('button' , form ).html('<span class="iconify" data-icon="ant-design:heart-filled" style="color: green;"></span>');
+                        // deletePost($(' .delete-post-button' ,newPost ));
+                        // addComment( data.data.post._id );
+                        // deletecomment($(' delete-comment-button',newPost));
+                    },error: function(error){
+                        console.log(error.responseText);
+                    }
+                })
+                
+            })
+        }
 
 
 
