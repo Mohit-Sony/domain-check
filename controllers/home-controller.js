@@ -25,11 +25,24 @@ module.exports.result = async function(req,res){
 
 
 
-        let list = await Prefixsuffix.find({
-            // "Prefix/Suffix": {$exists: true},
-            // "$expr": { "$gt": [ { "$strLenCP": "$Prefix/Suffix" }, 4 ] } 
-
-        }).limit(100);
+        let list = await Prefixsuffix.aggregate([{$match: {
+            type: undefined
+           }}, {$redact: {
+            $cond: [
+             {
+              $gt: [
+               {
+                $strLenCP: '$Prefix/Suffix'
+               },
+               0
+              ]
+             },
+             '$$KEEP',
+             '$$PRUNE'
+            ]
+           }}, {$sample: {
+            size: 50
+           }}])
         // list = list;
         // console.log(list)
 
