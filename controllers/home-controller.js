@@ -15,6 +15,12 @@ module.exports.result = async function(req,res){
         let keyword = req.query.keyword;
         let ext = req.query["domain-ex"]
         console.log(keyword);
+        let oth_ext_tld = req.query.tld || ['co','io','in'];
+        if(Array.isArray(oth_ext_tld)){
+            oth_ext_tld.splice(3)
+        };
+
+
         
         //if keyword itself has a '.'
         if(keyword.indexOf(".") > 0 ){
@@ -23,40 +29,62 @@ module.exports.result = async function(req,res){
             keyword = keyword.substring(0,index)
         }
 
+        let type_array = req.query.type || ['Prefix','Suffix'];
+        if(! Array.isArray(type_array) && typeof type_array === 'string' ){
+            let temp = type_array;
+            type_array = [];
+            type_array[0]=temp;
+        };
+
+
+        let len_max = parseInt(req.query['len_max'] ) || 10 ;
+        let len_min = parseInt(req.query['len_min'] ) || 1 ;
+        let max_rank = 1000;
+        let sample_size = 50;
+        console.log(parseInt(req.query['len_max'] ));
+
+
         //check weather ext is valid or not
 
-
-
-
-        let list = await Prefixsuffix.aggregate([{$match: {
-            type: undefined
-           }}, {$redact: {
+        let list = await Prefixsuffix.aggregate([{$redact: {
             $cond: [
              {
-              $gt: [
+              $and: [
                {
-                $strLenCP: '$Prefix/Suffix'
+                $gte: [
+                 {
+                  $strLenCP: '$Prefix/Suffix'
+                 },
+                 len_min
+                ]
                },
-               0
+               {
+                $lte: [
+                 {
+                  $strLenCP: '$Prefix/Suffix'
+                 },
+                 len_max
+                ]
+               },
+               {
+                $lt: [
+                 '$Rank',
+                 max_rank
+                ]
+               },
+               {
+                $in: [
+                 '$Type',
+                 type_array
+                ]
+               }
               ]
              },
              '$$KEEP',
              '$$PRUNE'
             ]
-           }},{$redact: {
-            $cond: [
-             {
-              $lt: [
-               '$Rank',
-               1000
-              ]
-             },
-             '$$KEEP',
-             '$$PRUNE'
-            ]
-           }},
-            {$sample: {
-            size: 50
+           }}, {$sample: {
+            size: sample_size
            }}])
         // list = list;
         // console.log(list)
@@ -68,7 +96,8 @@ module.exports.result = async function(req,res){
         return res.render('result',{
             keyword:keyword,
             ext:ext,
-            list:list
+            list:list,
+            oth_tld:oth_ext_tld,
         })
 
 

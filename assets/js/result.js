@@ -4,7 +4,12 @@ function timeout(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 let clickAbleDiv = document.getElementsByClassName('unclicked');
-let tlds = ["co","in","io"];
+let tlds = ["world","in","io"];
+// let tldx = "<%= oth_tld %>"
+// let tldx = <%= JSON.stringify(oth_tld) %>
+console.log(tlds);
+console.log(tldx.split(","));
+tlds = tldx.split(",");
 
 async function check_avail(domainName){
     // await timeout(1000);
