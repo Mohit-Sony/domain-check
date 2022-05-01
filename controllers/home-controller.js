@@ -43,7 +43,19 @@ module.exports.result = async function(req,res){
              '$$KEEP',
              '$$PRUNE'
             ]
-           }}, {$sample: {
+           }},{$redact: {
+            $cond: [
+             {
+              $lt: [
+               '$Rank',
+               1000
+              ]
+             },
+             '$$KEEP',
+             '$$PRUNE'
+            ]
+           }},
+            {$sample: {
             size: 50
            }}])
         // list = list;
