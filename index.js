@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 require('./config/view-helper')(app);
 const env = require('./config/environment');
+const logger = require('morgan');
 const expressLayouts = require('express-ejs-layouts');
 const mongoose = require('mongoose');
 const db = require('./config/mongoose');
@@ -41,7 +42,7 @@ app.use(expressLayouts);
 app.set('layout extractStyles', true);
 app.set('layout extractScripts', true);
 
-
+app.use(logger(env.morgan.mode , env.morgan.options ));
 app.set('view engine', 'ejs');
 app.set('views','./views');
 

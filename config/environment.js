@@ -1,3 +1,15 @@
+const fs = require('fs');
+const rfs = require('rotating-file-stream');
+const path = require('path');
+
+const logDirectory = path.join(__dirname, '../production_logs')
+fs.existsSync(logDirectory ) || fs.mkdirSync(logDirectory);
+
+const accessLogStream = rfs.createStream('access_log',{
+    interval : '1d',
+    path: logDirectory
+})
+
 let development = {
     name:'development',
     session_cookie_key:'blahsomething',
@@ -8,6 +20,10 @@ let development = {
     aouth_clientSecret: "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",
     aouth_callbackURL: "http://localhost:8500/user/auth/google/callback",
     asset_path:'/assets',
+    morgan:{
+        mode:'dev',
+        options: {stream : accessLogStream}
+    }
     
 }
 
@@ -21,6 +37,10 @@ let production = {
     aouth_clientSecret: process.env.DOMAIN_AOUTH_CLIENTSECRET,
     aouth_callbackURL: process.env.DOMAIN_AOUTH_CALLBACKURL,
     asset_path:'/public/assets',
+    morgan:{
+        mode:'combined',
+        options: {stream : accessLogStream}
+    }
 }
 
 // console.log(production)
