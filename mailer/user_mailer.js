@@ -25,7 +25,7 @@ exports.newComment = (comment)=>{
 }
 exports.forgot_password = function(user,authentication_key){
 
-
+    console.log('inside user mailer the user in user mailer :', user );
     let htmlString = nodeMailer.renderTemplate(user,'/forgot_password.ejs');
 
     nodeMailer.transporter.sendMail({

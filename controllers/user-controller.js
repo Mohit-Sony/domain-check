@@ -1,6 +1,8 @@
 const User = require('../models/user');
 const mailer = require('../mailer/user_mailer')
 const crypto = require('crypto');
+const forgotemailworker = require('../workers/forgot_email_worker');
+const queue = require('../config/kue');
 
 
 
@@ -94,7 +96,7 @@ module.exports.edit_user = async function(req,res){
         });
     console.log(user);
 
-        mailer.forgot_password(user);
+        // mailer.forgot_password(user);
 
     return res.redirect('back');
     } catch (error) {
@@ -105,13 +107,31 @@ module.exports.edit_user = async function(req,res){
 module.exports.forgot_password = async function(req,res){
 
     try {
-        console.log(req.query.email);
+        console.log(req.body.email);
         let key = crypto.randomBytes(20).toString('hex')
         let user = await User.findOne({email:req.body.email});
-
+        console.log(user);
         if(user){
-            mailer.forgot_password(user);
+            user.auth_key = key;
+            user.save();
+            // mailer.forgot_password(user);
             //noty setup 
+
+            let job = await queue.create('emails',user).save(function(err){
+                if(err){
+                    console.log(`error in processing the queue : ${err}`)
+                }
+                console.log(job.id);
+            })
+
+
+            // let job = queueMicrotask.create('emails',user).save(function(err){
+            //     if(err){
+            //         console.log(`error in processing the queue : ${err}`)
+            //     }
+            //     console.log(job.id)
+            // })
+
         }else{
             console.log(`user not exists`);
             return res.redirect('/')
@@ -192,5 +212,7 @@ module.exports.reset_pass_req = async function(req,res){
     }
 }
 module.exports.forget_pass_page = function(req,res){
-    return res.render('forgot_pass');
+    return res.render('forgot_pass',{
+        keyword:'',
+    });
 }
