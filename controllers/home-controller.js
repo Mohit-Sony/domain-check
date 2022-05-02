@@ -105,6 +105,7 @@ module.exports.result = async function(req,res){
 
     } catch (error) {
         console.log('result :', error);
+        req.flash('error',`Internal Server error : ${error}`)
         return res.redirect('back');
     }
 

@@ -14,7 +14,8 @@ const request = require('request');
 // const http = require('http');
 var cors = require('cors');
 const passportGoogle = require('./config/passport-google-strategy');
-
+const flash = require('connect-flash');
+const customMware = require('./config/middleware');
 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
@@ -66,6 +67,8 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
+app.use(customMware.setflash);
 
 app.use(passport.setAuthenticatedUser);
 

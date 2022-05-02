@@ -13,6 +13,8 @@
     <script src=
 "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
     </script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css"  >
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js" ></script>
     <title>Domain Check List</title>
 </head>
 <body>
@@ -31,5 +33,25 @@
 
 
     <%- script %>
+    <script>
+        <% if(locals.flash.sucess && locals.flash.sucess.length > 0){ %>
+            new Noty({
+            theme:'relax',
+            text: '<%= flash.sucess %>',
+            type:'success',
+            layout: 'topRight',
+            timeout:1500
+        }).show();
+        <% } %>
+        <% if(locals.flash.error && locals.flash.error.length > 0){ %>
+            new Noty({
+            theme:'relax',
+            text: '<%= flash.error %>',
+            type:'error',
+            layout: 'topRight',
+            timeout:1500
+        }).show();
+        <% } %>
+    </script>
 </body>
 </html>

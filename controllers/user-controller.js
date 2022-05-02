@@ -45,6 +45,7 @@ module.exports.create_user = function(req,res){
     //if password and confirm password doesnot match
     if(req.body.password != req.body.confirm_password){
         console.log(`password and confirm password does not match`)
+        req.flash('error','password did not match')
         return res.redirect("back");
     }
     //if matches then
@@ -53,10 +54,12 @@ module.exports.create_user = function(req,res){
         User.findOne({email:req.body.email},function(err,user){
             if(err){
                 console.log(`error in finding user from database : ${err}`);
+                req.flash('error','Internal server error try back in moment')
                 return res.redirect('back');
             }
             if(user){
                 console.log(`user already exist with same email address`);
+                req.flash('error','Internal server error try back in moment')
                 return res.redirect('back')
             }
             //if no user is present with this email
@@ -68,6 +71,7 @@ module.exports.create_user = function(req,res){
                     name : req.body.name,
                     number : req.body.number
                 });
+                req.flash('sucess','new user created sucessfully ');
                 return res.redirect('/user/sign-in');
             }
         })
@@ -76,11 +80,13 @@ module.exports.create_user = function(req,res){
 
 module.exports.create_session = function(req,res){
 //todo
-    return res.redirect('/');
+    req.flash('sucess','Logged in sucessfully');
+    return res.redirect('back');
 }
 
 module.exports.log_out = function(req,res){
     req.logout();
+    req.flash('sucess','Logged out sucessfully');
     return res.redirect('back');
     
 }
@@ -88,19 +94,21 @@ module.exports.log_out = function(req,res){
 module.exports.edit_user = async function(req,res){
     try {
         let user = await User.findByIdAndUpdate(req.user.id,{
-            email: req.body.email ,
             name : req.body.name ,
             number:req.body.number
             
 
         });
     console.log(user);
+    req.flash('sucess','User Sucessfully Edited');
+
 
         // mailer.forgot_password(user);
 
     return res.redirect('back');
     } catch (error) {
         console.log(error);
+        req.flash('error',`Internal Server error : ${error}`)
         return res.redirect('back');
     }
 }
@@ -141,6 +149,7 @@ module.exports.forgot_password = async function(req,res){
 
     } catch (error) {
         console.log(error);
+        req.flash('error',`Internal Server error : ${error}`)
         return res.redirect('back');
     }
 }
@@ -163,12 +172,14 @@ module.exports.forgot_password_reset_recive = async function(req,res){
         }else{
             //noty needed
             console.log('user not exist or authkey expired');
+            req.flash('error','user not exist or authkey expired please retry');
             res.redirect('back');
         }
 
 
     } catch (error) {
         console.log(error);
+        req.flash('error',`Internal Server error : ${error}`)
         return res.redirect('back');
     }
 }
@@ -189,17 +200,22 @@ module.exports.reset_pass_req = async function(req,res){
                         auth_key:crypto.randomBytes(20).toString('hex')
                     });
                     console.log('password updated');
+                    req.flash('sucess','user password updated please Login with new credentials');
+
                 }else{
                     console.log(`unautharised request`);
+                    req.flash('error','user not exist or authkey expired please retry');
                     return res.redirect('back');  
                 }
             }else{
                 console.log(`unautharised request`);
+                req.flash('error','user not exist or authkey expired please retry');
                 return res.redirect('back');
 
             }
         }else{
             console.log(`password and confirm password did not match`);
+            req.flash('error','password and confirm password did not match retry');
             return res.redirect('back');
         }
 
@@ -208,6 +224,7 @@ module.exports.reset_pass_req = async function(req,res){
 
     } catch (error) {
         console.log(error);
+        req.flash('error',`Internal Server error : ${error}`)
         return res.redirect('back');
     }
 }

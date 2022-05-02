@@ -33,7 +33,7 @@ module.exports.profile = function(req,res){
 module.exports.toggletowishlist = async function(req,res){
     try {
         let user = await User.findById(req.user.id);
-        console.log(user);
+        // console.log(user);
 
         //check weather this wish previously exists or not 
         let wish = await Wish.findOne({user:req.user.id,domain:req.body.domain});
@@ -41,14 +41,15 @@ module.exports.toggletowishlist = async function(req,res){
         console.log(`inside add to wishlist`);
         //if exist -> remove 
         if(wish){
-            console.log(`wish already exist`);
-            console.log(wish);
+            // console.log(`wish already exist`);
+            // console.log(wish);
             await User.findByIdAndUpdate(req.user.id,{
                 $pull:{
                     wishlist: {wish : wish}
                 }
             });
             wish.remove();
+            req.flash('sucess','wish removed sucessfully');
             //remove in 
         }else{
                    //if not exits -> add to wishlist 
@@ -63,6 +64,8 @@ module.exports.toggletowishlist = async function(req,res){
                     wishlist: {wish : wish}
                 }
             });
+            
+            req.flash('sucess','wish added sucessfully');
 
 
         }
@@ -81,7 +84,7 @@ module.exports.toggletowishlist = async function(req,res){
 module.exports.addtowishlist = async function(req,res){
     try {
         let user = await User.findById(req.user.id);
-        console.log(user);
+        // console.log(user);
 
         //check weather this wish previously exists or not 
         let wish = await Wish.findOne({user:req.user.id,domain:req.body.domain});
@@ -90,7 +93,8 @@ module.exports.addtowishlist = async function(req,res){
         //if exist -> remove 
         if(wish){
             console.log(`wish already exist`);
-            console.log(wish);
+            req.flash('sucess','wish already exists');
+            // console.log(wish);
             //remove in 
         }else{
             //if not exits -> add to wishlist 
@@ -105,6 +109,7 @@ module.exports.addtowishlist = async function(req,res){
                     wishlist: {wish : wish}
                 }
             });
+            req.flash('sucess','wish added sucessfully');
 
 
         }
@@ -119,6 +124,7 @@ module.exports.addtowishlist = async function(req,res){
 
     } catch (error) {
         console.log(error)
+        req.flash('error',`Internal Server error : ${error}`)
         return res.redirect('back')
     }
 }
@@ -126,7 +132,7 @@ module.exports.addtowishlist = async function(req,res){
 module.exports.removefromwishlist = async function(req,res){
     try {
         let user = await User.findById(req.user.id);
-        console.log(user);
+        // console.log(user);
 
         //check weather this wish previously exists or not 
         let wish = await Wish.findOne({user:req.user.id,domain:req.body.domain});
@@ -143,8 +149,10 @@ module.exports.removefromwishlist = async function(req,res){
             });
             wish.remove();
             //remove in 
+            req.flash('sucess','wish removed sucessfuly');
         }else{
                    //if not exits -> add to wishlist 
+                   req.flash('error','wish does not exists')
                    console.log(`wish not exists`);
         }
         return res.redirect('back');
@@ -152,6 +160,7 @@ module.exports.removefromwishlist = async function(req,res){
 
     } catch (error) {
         console.log(error)
+        req.flash('error',`Internal Server error : ${error}`)
         return res.redirect('back')
     }
 }
