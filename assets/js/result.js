@@ -180,7 +180,7 @@ async function afterclick(i){
             </div>
             <div class="row2-list-div-container">
                 <div class="row2-register-now-cont flex-center">
-                    <a href="/#">
+                    <a href="#">
                         <div class="register-now">
                             Register Now
                         </div>
