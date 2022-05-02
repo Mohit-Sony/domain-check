@@ -7,6 +7,7 @@ let development = {
     aouth_clientID: "1016003462984-37iti7aa4pph7t7ghe4dvuctn09avdan.apps.googleusercontent.com",
     aouth_clientSecret: "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",
     aouth_callbackURL: "http://localhost:8500/user/auth/google/callback",
+    asset_path:'/assets',
     
 }
 
@@ -19,7 +20,8 @@ let production = {
     aouth_clientID: process.env.DOMAIN_AOUTH_CLIENTID,
     aouth_clientSecret: process.env.DOMAIN_AOUTH_CLIENTSECRET,
     aouth_callbackURL: process.env.DOMAIN_AOUTH_CALLBACKURL,
+    asset_path:'/public/assets',
 }
 
-console.log(production)
-module.exports = development
+// console.log(production)
+module.exports = production

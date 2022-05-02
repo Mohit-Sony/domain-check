@@ -18,6 +18,7 @@ var cors = require('cors');
 const passportGoogle = require('./config/passport-google-strategy');
 const flash = require('connect-flash');
 const customMware = require('./config/middleware');
+const path= require('path');
 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
@@ -31,7 +32,9 @@ app.use(express.urlencoded());
 
 app.use(cookieParser());
 
-app.use(express.static('./assets'));
+// app.use(express.static('./assets'));
+app.use(express.static( __dirname +  env.asset_path));
+
 
 app.use(expressLayouts);
 // app.set('layout','./layouts/any.ejs')
