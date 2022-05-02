@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
+const env = require('./environment');
 
-mongoose.connect('mongodb://localhost/domain-check');
+mongoose.connect(env.mongoUrl);
 
 const db = mongoose.connection;
 

@@ -1,6 +1,8 @@
 const nodeMailer = require('nodemailer');
 const path = require('path');
 const ejs = require('ejs');
+const env = require('./environment');
+
 
 //autharize with smtp or google to send email 
 let transporter = nodeMailer.createTransport({
@@ -9,8 +11,8 @@ let transporter = nodeMailer.createTransport({
     port:587,
     secure:false,
     auth:{
-        user:'imohitsoni28@gmail.com',
-        pass:'Asdf@#1234',
+        user:env.smtp_user,
+        pass:env.smtp_pass,
     }
 });
 

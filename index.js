@@ -1,6 +1,7 @@
 const port = 8500;
 const express = require('express');
 const app = express();
+const env = require('./config/environment');
 const expressLayouts = require('express-ejs-layouts');
 const mongoose = require('mongoose');
 const db = require('./config/mongoose');
@@ -54,14 +55,14 @@ app.set('views','./views');
 app.use(session({
     name: 'name',
     // TODO change the secret before deployment in production mode
-    secret: 'blahsomething',
+    secret: env.session_cookie_key,
     saveUninitialized: false,
     resave: false,
     cookie: {
         maxAge: (1000 * 60 * 60 * 24)
     },
     store: MongoDbStore.create({
-        mongoUrl: 'mongodb://localhost/passport_local',
+        mongoUrl: env.mongoUrl,
     })
 }));
 
