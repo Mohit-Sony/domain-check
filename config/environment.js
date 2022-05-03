@@ -23,7 +23,10 @@ let development = {
     morgan:{
         mode:'dev',
         options: {stream : accessLogStream}
-    }
+    },
+    mongo_db_pass:'G5G0SVVetql3bs4u',
+    mongo_db_username:'Financeuser',
+    mongo_db_name:'Domain_development',
     
 }
 
@@ -40,7 +43,10 @@ let production = {
     morgan:{
         mode:'combined',
         options: {stream : accessLogStream}
-    }
+    },
+    mongo_db_pass:process.env.DOMAIN_MONGO_DB_PASS,
+    mongo_db_username:process.env.DOMAIN_MONGO_DB_USERNAME,
+    mongo_db_name:process.env.DOMAIN_MONGO_DB_NAME,
 }
 
 // console.log(production)
