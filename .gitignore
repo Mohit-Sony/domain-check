@@ -4,3 +4,4 @@ frontend
 credentials
 ignore
 production_logs
+public

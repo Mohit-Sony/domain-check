@@ -18,7 +18,7 @@ let development = {
     smtp_pass:'Asdf@#1234',
     aouth_clientID: "1016003462984-37iti7aa4pph7t7ghe4dvuctn09avdan.apps.googleusercontent.com",
     aouth_clientSecret: "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",
-    aouth_callbackURL: "http://localhost:8500/user/auth/google/callback",
+    aouth_callbackURL: "http://sonimohit.in/user/auth/google/callback",
     asset_path:'/assets',
     morgan:{
         mode:'dev',
