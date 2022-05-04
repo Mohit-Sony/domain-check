@@ -50,4 +50,5 @@ let production = {
 }
 
 // console.log(production)
+console.log(production.aouth_callbackURL)
 module.exports = production
